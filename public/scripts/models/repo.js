@@ -17,9 +17,11 @@
     $.get('/github/user/repos?type=owner')
     .then(
       // render the data
-      data => data.map(repo => $('#results').append(`<p>${repo.name}</p>`)),
+      // data => data.map(repo => $('#results').append(`<p>${repo.name}</p>`)),
+      data => repos.all = data,
       err => console.log(err)
-    );
+    )
+    .then(callback);
   };
 
   repos.with = attr => repos.all.filter(repo => repo[attr]);
